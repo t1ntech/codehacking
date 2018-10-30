@@ -7,4 +7,6 @@ This is my first project in Laravel. I'm gonna try to make a Servicedesk Applica
 If that is ready.. i will start my own RPG based game in Laravel. 
 
 
-## License
+## Contact
+
+tino[ @ ] t1n [ . ] nl
