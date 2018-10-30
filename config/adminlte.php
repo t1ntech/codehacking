@@ -32,7 +32,7 @@ return [
 
     'logo' => '<b>InWork</b>App',
 
-    'logo_mini' => '<b>IW</b>App',
+    'logo_mini' => '<b>IW</b>',
 
     /*
     |--------------------------------------------------------------------------
@@ -118,9 +118,40 @@ return [
             'text'        => 'Pages',
             'url'         => 'admin/pages',
             'icon'        => 'file',
-            'label'       => 4,
+            'label'       => '',
             'label_color' => 'success',
         ],
+        [
+            'text'        => 'Users',
+            'url'         => 'admin/users',
+            'icon'        => 'user',
+            'label_color' => 'success',
+            'submenu'     => [
+            
+                    [         
+                        
+                    'text' => 'Create User',
+                    'url'  => 'admin/users/create',
+                    'icon' => 'user',
+                ],
+                ]
+                
+            
+        ],
+
+
+
+            // [
+            //     'text'        => 'Create User',
+            //     'url'         => 'admin/users/create',
+            //     'icon'        => 'user',
+            //     'label'       => '',
+            //     'label_color' => 'success',
+            // ],
+
+
+
+        
         'ACCOUNT SETTINGS',
         [
             'text' => 'Profile',

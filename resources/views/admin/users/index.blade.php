@@ -9,7 +9,63 @@
 @stop
 
 @section('content')
-    <p>Welcome to this beautiful user panel.</p>
+
+<div class="row">
+  <div class="col-xs-12">
+    <div class="box">
+      <div class="box-header">
+        <h3 class="box-title">Responsive Hover Table</h3>
+
+        <div class="box-tools">
+          <div class="input-group input-group-sm" style="width: 150px;">
+            <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
+
+            <div class="input-group-btn">
+              <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.box-header -->
+      <div class="box-body table-responsive">
+        <table class="table table-hover">
+          <tr>
+            <th>ID</th>
+            <th>Naam</th>
+            <th>E-mail</th>
+            <th>Role</th>
+            <th>Active</th>
+            <th>Joined Date</th>
+            <th>Updated at</th>
+
+          </tr>
+
+          @if($users)
+          @foreach($users as $user)
+
+          <tr>
+            <td>{{$user->id}}</td>
+            <td>{{$user->name}}</td>
+            <td>{{$user->email}}</td>   
+            <td>{{$user->role_id}}</td>
+            <td>{{$user->is_active == 1 ? 'Active' : 'Not Active'}}</td>    
+            <td>{{$user->created_at}}</td>   
+            <td>{{$user->updated_at}}</td>  
+
+        </table>
+
+          @endforeach
+          @endif
+
+      </div>
+      <!-- /.box-body -->
+    </div>
+    <!-- /.box -->
+  </div>
+</div>
+</section>
+
+
 @stop
 
 @section('css')
