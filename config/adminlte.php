@@ -30,7 +30,7 @@ return [
     |
     */
 
-    'logo' => '<b>InWork</b>App',
+    'logo' => '<b>InWork</b>SDApp',
 
     'logo_mini' => '<b>IW</b>',
 
@@ -45,7 +45,7 @@ return [
     |
     */
 
-    'skin' => 'blue',
+    'skin' => 'black',
 
     /*
     |--------------------------------------------------------------------------
@@ -108,29 +108,36 @@ return [
     */
 
     'menu' => [
-        'MAIN NAVIGATION',
+        'AGENT CONTROL',
         [
             'text' => 'Blog',
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
         [
-            'text'        => 'Pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'file',
-            'label'       => '',
-            'label_color' => 'success',
-        ],
-        [
-            'text'        => 'Users',
+            'text'        => 'Agents',
             'url'         => 'admin/users',
-            'icon'        => 'user',
+            'icon'        => 'share',
             'label_color' => 'success',
             'submenu'     => [
             
                     [         
                         
-                    'text' => 'Create User',
+                    'text' => 'Show Agents',
+                    'url'  => 'admin/users',
+                    'icon' => 'user',
+                ],
+
+                [         
+                        
+                    'text' => 'Create Agent',
+                    'url'  => 'admin/users/create',
+                    'icon' => 'user',
+                ],
+
+                [         
+                        
+                    'text' => 'Edit Agent',
                     'url'  => 'admin/users/create',
                     'icon' => 'user',
                 ],
@@ -203,15 +210,15 @@ return [
         ],
         'LABELS',
         [
-            'text'       => 'Important',
+            'text'       => 'Scripts / Templates',
             'icon_color' => 'red',
         ],
         [
-            'text'       => 'Warning',
+            'text'       => 'Easy Fix!',
             'icon_color' => 'yellow',
         ],
         [
-            'text'       => 'Information',
+            'text'       => 'F.A.Q.',
             'icon_color' => 'aqua',
         ],
     ],

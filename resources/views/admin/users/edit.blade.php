@@ -9,7 +9,9 @@
 @stop
 
 @section('content')
-    <p>Verander hier in de settings van je profiel</p>
+    
+
+    
 @stop
 
 @section('css')
@@ -19,3 +21,4 @@
 @section('js')
     <script> console.log('Hi!'); </script>
 @stop
+
