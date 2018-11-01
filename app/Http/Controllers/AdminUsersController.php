@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\Role;
+use App\Avatar;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -49,18 +50,34 @@ class AdminUsersController extends Controller
             'name'  => 'required|max:255',
             'email'  => 'required|email|max:255|unique:users',
             'role_id' => 'required|integer',
+
         ];
 
-        $this->validate($request, $rules);
-
-        User::create($request->all());
-
-        return redirect('/admin/users');
+        // $this->validate($request, $rules);
+        // User::create($request->all());
+        // return redirect('/admin/users');
 
         // return $request->all();
 
+        $input = $request->all();
+
+        if($file = $request->file('avatar_id')){
+
+            $name = time() . $file->getClientOriginalName();
+            $file->move('images', $name);
+            $avatar = Avatar::create(['file' =>$name]);
+            $input['avatar_id'] = $avatar->id;
     }
 
+            $input['password'] = bcrypt($request->password);
+
+            User::create($input);
+
+            
+            return redirect('/admin/users');
+
+
+    }
     /**
      * Display the specified resource.
      *

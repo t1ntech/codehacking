@@ -16,8 +16,8 @@
     {!! Form::open(['method'=>'POST', 'action'=> 'AdminUsersController@store', 'files' => true ]) !!}
 
 <div class="form-group">  
-    {!! Form::label('file', 'Avatar') !!}
-    {!! Form::file('file', null, ['class' => 'form-control']) !!}
+    {!! Form::label('avatar_id', 'Avatar:') !!}
+    {!! Form::file('avatar_id', null, ['class' => 'form-control']) !!}
 </div>
 
 

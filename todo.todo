@@ -1,5 +1,7 @@
 How to GIT:
- ☐ 1. git add .
- ☐ 2. git init -m 
- ☐ 
- 9bcb41
+ ✔ 1. git add . 
+ ✔ 2. git commit -m "Users Page without Avatar" 
+ ✔ 3. git push origin master 
+ // How to commit to Github
+
+ 
