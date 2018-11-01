@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\User;
 use App\Role;
+use Illuminate\Http\Request;
+
+use App\Http\Requests;
 
 class AdminUsersController extends Controller
 {
@@ -41,7 +43,22 @@ class AdminUsersController extends Controller
      */
     public function store(Request $request)
     {
-        return $request->all();
+
+        $rules = [
+
+            'name'  => 'required|max:255',
+            'email'  => 'required|email|max:255|unique:users',
+            'role_id' => 'required|integer',
+        ];
+
+        $this->validate($request, $rules);
+
+        User::create($request->all());
+
+        return redirect('/admin/users');
+
+        // return $request->all();
+
     }
 
     /**
@@ -52,7 +69,7 @@ class AdminUsersController extends Controller
      */
     public function show($id)
     {
-        return view('admin.users.show');
+        //
     }
 
     /**

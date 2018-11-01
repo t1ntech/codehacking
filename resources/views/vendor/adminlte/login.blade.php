@@ -11,11 +11,14 @@
 @section('body')
     <div class="login-box">
         <div class="login-logo">
+                
             <a href="{{ url(config('adminlte.dashboard_url', 'home')) }}">{!! config('adminlte.logo', '<b>Admin</b>LTE') !!}</a>
+            <img src="https://cdn.inwork.nl/wp-content/uploads/2016/08/logo_2016_inwork.png" width="260px" height="30px" alt="" srcset="">
         </div>
         <!-- /.login-logo -->
         <div class="login-box-body">
             <p class="login-box-msg">{{ trans('adminlte::adminlte.login_message') }}</p>
+            
             <form action="{{ url(config('adminlte.login_url', 'login')) }}" method="post">
                 {!! csrf_field() !!}
 
@@ -65,6 +68,8 @@
                        class="text-center"
                     >{{ trans('adminlte::adminlte.register_a_new_membership') }}</a>
                 @endif
+                
+                
             </div>
         </div>
         <!-- /.login-box-body -->

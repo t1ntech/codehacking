@@ -10,10 +10,16 @@
 
 @section('content')
 
-<div class="card">
+<div class="well coll-12">
     <p>Create a new Agent </p>
 
-    {!! Form::open(['method'=>'POST', 'action'=> 'AdminUsersController@store']) !!}
+    {!! Form::open(['method'=>'POST', 'action'=> 'AdminUsersController@store', 'files' => true ]) !!}
+
+<div class="form-group">  
+    {!! Form::label('file', 'Avatar') !!}
+    {!! Form::file('file', null, ['class' => 'form-control']) !!}
+</div>
+
 
 <div class="form-group">
     {!! Form::label('name', 'Name') !!}
@@ -47,6 +53,26 @@
     
     {!! Form::close() !!}
 </div>
+
+@if (count($errors) > 0 )
+
+
+
+<div class="box-body">
+    
+        <div class="callout callout-danger">
+                <h4>I am a danger callout!</h4>
+        <ul>
+             @foreach ($errors->all() as $error)
+
+             <li>{{$errors}}</li>
+                 
+             @endforeach
+        </ul>
+
+    </div>
+</div>
+@endif
 
 @stop
 

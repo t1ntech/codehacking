@@ -83,7 +83,8 @@
                 </div>
 
                 <div class="links">
-                    <a href="https://geenstijl.nl">Geenstijl</a>
+                    <a href="https://www.inwork.nl">inWork.nl</a>
+                    <p>Creating a SDApp to make our SD life more Simple...</p>
 
                 </div>
             </div>

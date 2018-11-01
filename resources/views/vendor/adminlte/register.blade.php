@@ -11,6 +11,7 @@
     <div class="register-box">
         <div class="register-logo">
             <a href="{{ url(config('adminlte.dashboard_url', 'home')) }}">{!! config('adminlte.logo', '<b>Admin</b>LTE') !!}</a>
+            <img src="https://cdn.inwork.nl/wp-content/uploads/2016/08/logo_2016_inwork.png" width="260px" height="30px" alt="" srcset="">
         </div>
 
         <div class="register-box-body">

@@ -14,7 +14,7 @@
   <div class="col-xs-12">
     <div class="box">
       <div class="box-header">
-        <h3 class="box-title">Responsive Hover Table</h3>
+        <h3 class="box-title">Agents</h3>
 
         <div class="box-tools">
           <div class="input-group input-group-sm" style="width: 150px;">
@@ -29,34 +29,39 @@
       <!-- /.box-header -->
       <div class="box-body table-responsive">
         <table class="table table-hover">
-          <tr>
-            <th>ID</th>
-            <th>Naam</th>
-            <th>E-mail</th>
-            <th>Role</th>
-            <th>Active</th>
-            <th>Joined Date</th>
-            <th>Updated at</th>
-
-          </tr>
+                <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Naam</th>
+                  <th>E-mail</th>
+                  <th>Role</th>
+                  <th>Active</th>
+                  <th>Joined Date</th>
+                  <th>Updated at</th>
+                </tr>
+                </thead>
+                <tbody>
 
           @if($users)
-          @foreach($users as $user)
 
-          <tr>
-            <td>{{$user->id}}</td>
-            <td>{{$user->name}}</td>
-            <td>{{$user->email}}</td>   
-            <td>{{$user->role_id}}</td>
-            <td>{{$user->is_active == 1 ? 'Active' : 'Not Active'}}</td>    
-            <td>{{$user->created_at}}</td>   
-            <td>{{$user->updated_at}}</td>  
+              @foreach($users as $user)
 
-        </table>
+            <tr>
+                <td>{{$user->id}}</td>
+                <td>{{$user->name}}</td>
+                <td>{{$user->email}}</td>
+                <td>{{$user->role_id}}</td>
+                <td>{{$user->is_active == 1 ? 'Active' : 'Not Active'}}</td>
+                <td>{{$user->created_at->diffForHumans()}}</td>
+                <td>{{$user->updated_at->diffForHumans()}}</td>
+            </tr>
 
-          @endforeach
+              @endforeach
           @endif
 
+          </tbody>
+        </table>
+        
       </div>
       <!-- /.box-body -->
     </div>

@@ -9,7 +9,10 @@
 @stop
 
 @section('content')
-    <p>Welcome to the Dashboard</p>
+<div class="info-box-content">
+        <span class="info-box-text">Bookmarks</span>
+        <span class="info-box-number">410</span>
+      </div>
 @stop
 
 @section('css')
