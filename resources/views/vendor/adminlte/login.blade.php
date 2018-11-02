@@ -66,10 +66,17 @@
                 @if (config('adminlte.register_url', 'register'))
                     <a href="{{ url(config('adminlte.register_url', 'register')) }}"
                        class="text-center"
-                    >{{ trans('adminlte::adminlte.register_a_new_membership') }}</a>
+                    >{{ trans('adminlte::adminlte.register_a_new_membership') }}</a><hr>
                 @endif
-                
-                
+                    <a class="btn btn-block btn-social btn-facebook">
+                        <i class="fa fa-facebook"></i> Sign in with Facebook
+                    </a>
+                    <a class="btn btn-block btn-social btn-github">
+                        <i class="fa fa-github"></i> Sign in with GitHub
+                    </a>
+                    <a class="btn btn-block btn-social btn-instagram">
+                        <i class="fa fa-instagram"></i> Sign in with Instagram
+                    </a>
             </div>
         </div>
         <!-- /.login-box-body -->

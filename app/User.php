@@ -31,12 +31,12 @@ class User extends Authenticatable
     public function role(){
 
         return $this->belongsTo('App\Role');
-    }
 
+    }
     public function avatar(){
 
-        return $this->belongsTO('App\Avatar');
-
+        return $this->belongsTo('App\Avatar');
+        
     }
 
 }
