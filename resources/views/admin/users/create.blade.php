@@ -54,25 +54,8 @@
     {!! Form::close() !!}
 </div>
 
-@if (count($errors) > 0 )
+@include('includes.form_errors')
 
-
-
-<div class="box-body">
-    
-        <div class="callout callout-danger">
-                <h4>I am a danger callout!</h4>
-        <ul>
-             @foreach ($errors->all() as $error)
-
-             <li>{{$errors}}</li>
-                 
-             @endforeach
-        </ul>
-
-    </div>
-</div>
-@endif
 
 @stop
 

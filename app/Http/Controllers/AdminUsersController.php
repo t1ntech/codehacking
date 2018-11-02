@@ -2,13 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Http\Requests;
 use App\Http\Requests\UsersEditRequest;
-
+use App\Http\Requests\UsersRequest;
+use App\Photo;
 use App\User;
 use App\Role;
 use App\Avatar;
+use Illuminate\Http\Request;
+use App\Http\Requests;
+use Illuminate\Support\Facades\Session;
+
+
+
 
 class AdminUsersController extends Controller
 {
@@ -43,18 +48,15 @@ class AdminUsersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UsersRequest $request)
     {
 
-        $rules = [
-
-            'name'  => 'required|max:255',
-            'email'  => 'required|email|max:255|unique:users',
-            'role_id' => 'required|integer',
-
-        ];
-
-        $input = $request->all();
+        if(trim($request->password) == ''){
+            $input = $request->except('password');
+        } else {
+            $input = $request->all();
+            $input['password'] = bcrypt($request->password);
+        }
 
         if($file = $request->file('avatar_id')){
 
@@ -64,10 +66,9 @@ class AdminUsersController extends Controller
             $input['avatar_id'] = $avatar->id;
     }
 
-            $input['password'] = bcrypt($request->password);
-
+        
             User::create($input);
-            
+
             return redirect('/admin/users');
 
 
@@ -105,24 +106,22 @@ class AdminUsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UsersEditRequest $request, $id)
     {
+
+        $user = User::findOrFail($id);
 
         if(trim($request->password) == '' ){
             
             $input = $request->except('password');
+            
         }else{
             
             $input = $request->all();
-            // $input['password'] = bcrypt($request->password);
+            $input['password'] = bcrypt($request->password);
         }   
 
-
-        $user = User::findOrFail($id);
-
-        // return $request->all();
-
-        // $input = $request->all();
+        $inpurt = $request->all();
 
         if($file = $request->file('avatar_id')){
 
@@ -141,7 +140,6 @@ class AdminUsersController extends Controller
          *  
          */
         $user->update($input);
-
         return redirect('/admin/users');
         
     }

@@ -8,9 +8,16 @@
 <h1>Edit Users</h1>
 @stop
 
+
+
 @section('content')
 
 {!! Form::model($user, ['method'=>'PATCH', 'action'=> ['AdminUsersController@update', $user->id], 'files' => true ]) !!}
+
+
+@include('includes.form_errors')
+
+
 
 <div class="col-sm-3">
     <center>
@@ -60,25 +67,7 @@
     {!! Form::close() !!}
 </div>
 
-@if (count($errors) > 0 )
 
-
-
-<div class="box-body">
-
-    <div class="callout callout-danger">
-        <h4>I am a danger callout!</h4>
-        <ul>
-            @foreach ($errors->all() as $error)
-
-            <li>{{$errors}}</li>
-
-            @endforeach
-        </ul>
-
-    </div>
-</div>
-@endif
 
 @stop
 

@@ -24,10 +24,10 @@ class UsersEditRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'email' => 'required',
-            'role_id' => 'reuired',
-            'is_active' => 'required',
+            
+            'name'=>'required',
+            'email'=>'required',
+            'role_id'=>'required',
             
         ];
     }

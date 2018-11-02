@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 2',
+    'title' => 'InWorkSDApp',
 
     'title_prefix' => '',
 
@@ -131,13 +131,6 @@ return [
                 [         
                         
                     'text' => 'Create Agent',
-                    'url'  => 'admin/users/create',
-                    'icon' => 'user',
-                ],
-
-                [         
-                        
-                    'text' => 'Edit Agent',
                     'url'  => 'admin/users/create',
                     'icon' => 'user',
                 ],
