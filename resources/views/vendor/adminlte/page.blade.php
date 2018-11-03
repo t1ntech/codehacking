@@ -25,6 +25,7 @@
                         <a href="{{ url(config('adminlte.dashboard_url', 'home')) }}" class="navbar-brand">
                             {!! config('adminlte.logo', '<b>InWork</b>App') !!}
                         </a>
+                        
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
                             <i class="fa fa-bars"></i>
                         </button>
@@ -56,23 +57,72 @@
             @endif
                 <!-- Navbar Right Menu -->
                 <div class="navbar-custom-menu">
+                    \
+                    <!-- User Account Menu -->
+                    <li class="dropdown user user-menu" id="user_menu" style="max-width: 280px;white-space: nowrap;">
+                        <!-- Menu Toggle Button -->
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="max-width: 280px;white-space: nowrap;overflow: hidden;overflow-text: ellipsis">
+                            <!-- The user image in the navbar-->
+                            <img src="http://www.gravatar.com/avatar/b588388b2143bc25b2299b4fdec520ed.jpg?s=80&amp;d=mm&amp;r=g" class="user-image" alt="User Image"/>
+                            <!-- hidden-xs hides the username on small devices so only the image appears. -->
+                            <span class="hidden-xs" data-toggle="tooltip" title="tino@t1n.nl">tino@t1n.nl</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <!-- The user image in the menu -->
+                            <li class="user-header">
+                                <img src="http://www.gravatar.com/avatar/b588388b2143bc25b2299b4fdec520ed.jpg?s=80&amp;d=mm&amp;r=g" class="img-circle" alt="User Image" />
+                                <p>
+                                    <span data-toggle="tooltip" title="tino@t1n.nl">tino@t1n.nl</span>
+                                    <small>Login Nov. 2012</small>
+                                </p>
+                            </li>
+                            <!-- Menu Body -->
+                            <li class="user-body">
+                                <div class="col-xs-4 text-center">
+                                    <a href="#">Followers</a>
+                                </div>
+                                <div class="col-xs-4 text-center">
+                                    <a href="#">Sales</a>
+                                </div>
+                                <div class="col-xs-4 text-center">
+                                    <a href="#">Friends</a>
+                                </div>
+                            </li>
+                            <!-- Menu Footer-->
+                            <li class="user-footer">
+                                <div class="pull-left">
+                                    <a href="https://demo.adminlte.acacha.org/user/profile" class="btn btn-default btn-flat">Profile</a>
+                                </div>
+                                <div class="pull-right">
+                                    <a href="https://demo.adminlte.acacha.org/logout" class="btn btn-default btn-flat" id="logout"
+                                       onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                                        Sign out
+                                    </a>
+
+                                    <form id="logout-form" action="https://demo.adminlte.acacha.org/logout" method="POST" style="display: none;">
+                                        <input type="hidden" name="_token" value="ncoJwBqyFhCZzt4rB3Ozw6aTCdPKJtRrXlT9eait">
+                                        <input type="submit" value="logout" style="display: none;">
+                                    </form>
+
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    {{ Auth::user()->name }}
                     <ul class="nav navbar-nav">
+                        
                         <li>
                             @if(config('adminlte.logout_method') == 'GET' || !config('adminlte.logout_method') && version_compare(\Illuminate\Foundation\Application::VERSION, '5.3.0', '<'))
                                 <a href="{{ url(config('adminlte.logout_url', 'auth/logout')) }}">
                                     <i class="fa fa-fw fa-power-off"></i> {{ trans('adminlte::adminlte.log_out') }}
                                 </a>
                             @else
-                                <a href="#"
-                                   onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
-                                >
-                                    <i class="fa fa-fw fa-power-off"></i> {{ trans('adminlte::adminlte.log_out') }}
-                                </a>
-                                <form id="logout-form" action="{{ url(config('adminlte.logout_url', 'auth/logout')) }}" method="POST" style="display: none;">
                                     @if(config('adminlte.logout_method'))
                                         {{ method_field(config('adminlte.logout_method')) }}
                                     @endif
                                     {{ csrf_field() }}
+                                    
                                 </form>
                             @endif
                         </li>
