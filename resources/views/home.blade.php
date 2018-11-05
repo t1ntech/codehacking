@@ -1,39 +1,24 @@
-@extends('adminlte::page')
-
-@section('title', 'AdminLTE')
-
-@section('content_header')
-    <h1>Dashboard</h1>
-@stop
+@extends('layouts.app')
 
 @section('content')
-        <!-- /.col -->
-        <div class="col-md-3 col-sm-6 col-xs-12">
-          <div class="info-box">
-            <span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span>
 
-            <div class="info-box-content">
-              <span class="info-box-text">New Agents</span>
-              <span class="info-box-number">5</span>
-            </div>
-            
-            <!-- /.info-box-content -->
-          </div>
-          <!-- /.info-box -->
-        </div>
-        <div class="col-md-3 col-sm-6 col-xs-12">
-                <div class="info-box">
-                  <span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span>
-      
-                  <div class="info-box-content">
-                    <span class="info-box-text">New Scripts</span>
-                    <span class="info-box-number">5</span>
-                  </div>
-                  
-                  <!-- /.info-box-content -->
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Dashboard</div>
+
+                <div class="card-body">
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+
+                   Welcome
                 </div>
-                <!-- /.info-box -->
-              </div>
-        <!-- /.col -->
-
-@stop
+            </div>
+        </div>
+    </div>
+</div>
+@endsection

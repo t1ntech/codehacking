@@ -12,25 +12,24 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Auth::routes();
-Route::get('/home', 'HomeController@index');
 
+Route::get('/home', 'HomeController@index');
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 /*
 *   Admin Controllers
 */
 Route::get('/admin', function(){
-
-    return view('admin.index');
-
+    return view('admin.dashboard', compact('user'));
 });
-
 
 Route::group(['middleware' => 'admin'], function(){
 
-    Route::resource('admin/users', 'AdminUsersController');
+Route::resource('admin/users', 'AdminUsersController');
+Route::resource('admin/posts', 'AdminPostsController');
     
 });

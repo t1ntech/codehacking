@@ -41,7 +41,7 @@ class User extends Authenticatable
 
     public function isRole(){
 
-        if($this->role->name == "Super User"){
+        if($this->role->name == "Super User" && $this->is_active == 1){
 
     return true;
 
