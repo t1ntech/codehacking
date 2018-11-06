@@ -2,7 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PostsCreateRequest;
+use App\Photo;
+use App\Post;
+use App\User;
 use Illuminate\Http\Request;
+
+use App\Avatar;
+use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
 
 class AdminPostsController extends Controller
 {
@@ -14,6 +22,11 @@ class AdminPostsController extends Controller
     public function index()
     {
         //
+
+        $posts = Post::all();
+
+        return view('admin.posts.index', compact('posts'));
+
     }
 
     /**
@@ -24,6 +37,7 @@ class AdminPostsController extends Controller
     public function create()
     {
         //
+        return view('admin.posts.create');
     }
 
     /**
@@ -32,9 +46,29 @@ class AdminPostsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PostsCreateRequest $request)
     {
-        //
+
+        // Pulling logged in user
+
+        $input = $request->all();
+
+        $user = Auth::user();
+
+        if($file = $request->file('avatar_id')){
+
+            $name = time() . $file->getClientOriginalName();
+            
+            $file->move('images', $name);
+
+            $avatar = Avatar::create(['file' => $name]);
+            
+            $input['avatar_id'] = $avatar->id;
+        }
+
+        $user->posts()->create($input);
+
+        return redirect('admin/posts');
     }
 
     /**

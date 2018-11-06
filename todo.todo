@@ -4,4 +4,9 @@ How to GIT:
  ✔ 3. git push origin master 
  // How to commit to Github
 
- 
+ Controller:
+
+ ☐ Controller = CRUD 
+ ☐ Return op de views/ index create etc. 
+ ☐ Model nodig voor -> 
+ ☐ Migrate voor Database ->

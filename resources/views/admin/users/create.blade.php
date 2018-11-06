@@ -48,6 +48,9 @@
 
 
                 {!! Form::close() !!}
+
+                @include('includes.form_errors')
+
             </div>
     
         </div>
@@ -55,7 +58,6 @@
 </main>
 
 
-@include('includes.form_errors')
 
 
 @stop

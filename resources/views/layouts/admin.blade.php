@@ -88,6 +88,23 @@
                             </div>
                         </li>
 
+                        <li class="sidebar-dropdown">
+                                <a href="#">
+                                        <i class="fas fa-newspaper"></i>
+                                    <span>Posts</span>
+                                </a>
+                                <div class="sidebar-submenu">
+                                    <ul>
+                                        <li>
+                                            <a href="{{ URL::route('posts.index') }}">Alle Posts</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ URL::route('posts.create') }}">Nieuwe Post</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+
                         <li class="header-menu">
                             <span>Relog:</span>
                         </li>
